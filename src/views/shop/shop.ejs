@@ -1,0 +1,94 @@
+<%- include('../partials/header') %>
+    <main id="shop" class="container">
+        <aside class="shop__filters filters" id="sidebar-product">
+            <fieldset>
+            <form id="filter-form" class="filters__search">
+                <label for="filters__title" class="filters__title" for="search-product">Buscar producto:</label>
+                <input class="input-filter" type="text" id="search-product" name="search-product" placeholder="Buscar ítem o categoría">
+
+                <div class=" filters__order">
+                    <label class="filters__title" for="orderby">Ordenar por:</label>
+                    <select id="orderby" name="orderby">
+                        <option value="precio-asc">Precio (menor a mayor)</option>
+                        <option value="precio-desc">Precio (mayor a menor)</option>
+                        <option value="nuevo">Más nuevo</option>
+                    </select>
+                </div>
+
+
+                <div class="filters__price">
+                    <label for="filters__title">Precio:</label>
+                    <input type="number" id="min-price" name="min-price" placeholder="min" min="0">
+                    <input type="number" id="max-price" name="max-price" placeholder="max" min="0">
+                </div>
+                <div class="filters__checks form-group">
+                    <fieldset>
+                        <legend class="filter-legend">Filtrar por:</legend>
+                        <label class="label-filter" for="new">
+                            <input class="icheck" type="checkbox" id="news" name="news" value="news"> Nuevo
+                        </label>
+                        <label class="label-filter" for="offers">
+                            <input class="icheck" type="checkbox" id="offers" name="offers"> Ofertas
+                        </label>
+                        <label class="label-filter" for="special-edition">
+                            <input class="icheck" type="checkbox" id="special-edition" name="special-edition"> Edición especial
+                        </label>
+                        <label class="label-filter" for="favorites">
+                            <input class="icheck" type="checkbox" id="favorites" name="favorites"> Favoritos
+                        </label>
+                    </fieldset>
+                </div>
+                        <!-- Botón de filtrar -->
+                       <!-- <button class="btn btn--primary btn-filter" type="submit">Filtrar</button> --> 
+            </form>
+        </fieldset>
+        </aside>
+        <section class="shop__content">
+            <ul class="shop__items">
+                <% data.forEach( item => { %>
+                    <li class="shop__item">
+                        <article class="card-item">
+                            <a class="card-item__link" href="/shop/item/<%= item.product_id %>">
+                                <picture class="card-item__cover">
+                                    <span class="card-item__tag">Nuevo</span>
+                                    <img class="card-item__img--front" src="/img/<%= item.image_front %> "
+                                        alt="<%= item.product_description %>">
+                                    <img class="card-item__img--back" src="/img/<%=item.image_back %> "
+                                        alt="<%= item.product_description %>">
+                                </picture>
+                                <div class="card-item__content">
+                                    <p class="card-item__licence">
+                                        <%= item.licence_name %>
+                                    </p>
+                                    <h4 class="card-item__name">
+                                        <%= item.product_name%>
+                                    </h4>
+                                    <p class="card-item__price">$ <%= item.price %>.-</p>
+                                    <p class="card-item__promo">
+                                        <%= item.dues %> CUOTAS SIN INTERÉS
+                                    </p>
+                                </div>
+                            </a>
+                        </article>
+                    </li>
+                    <% }) %>
+            </ul>
+            <div class="pagination">
+                <a class="pagination__link" href="#">
+                    « </a>
+                <a class="pagination__link pagination__link--selected" href="#">1</a>
+                <a class="pagination__link" href="#">2</a>
+                <a class="pagination__link" href="#">3</a>
+                <a class="pagination__link" href="#">4</a>
+                <a class="pagination__link" href="#">5</a>
+                <a class="pagination__link" href="#">»</a>
+            </div>
+        </section>
+    </main>
+    <%- include('../partials/footer') %>
+
+        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+
+        </body>
+
+        </html>

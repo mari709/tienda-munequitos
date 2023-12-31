@@ -1,0 +1,116 @@
+<%- include('../partials/header') %>
+
+    <main id="edit" class="container">
+        <div class="section-titulos-principales">
+            <h2 class="edit__title section-titulos-principales">EDITAR ITEM</h2>
+        </div>
+        <form class="edit__form" action="/admin/edit/<%= product.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="form__flex">
+                <div class="form__box--flex">
+                    <label class="form__label" for="category">Categoría:</label>
+                    <select class="form__select" name="category" id="category" required>
+                        <option value="1" <%= product.category_id == 1 ? 'selected' : '' %>>Figuras Coleccionables</option>
+                        <option value="2" <%= product.category_id == 2 ? 'selected' : '' %>>Remeras</option>
+                        <option value="3" <%= product.category_id == 3 ? 'selected' : '' %>>Llaveros</option>
+                    </select>
+                    
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="licence">Licencia:</label>
+                    <select class="form__select" name="licence" id="licence" required>
+                        <!-- si la condicion es verdadera agrego el atributo selected-->
+                        <option value="1" <%= product.licence_id == 1 ? 'selected' : '' %>>Pokemon</option>
+                        <option value="2" <%= product.licence_id == 2 ? 'selected' : '' %>>Star Wars</option>
+                        <option value="3" <%= product.licence_id == 3 ? 'selected' : '' %>>Harry Potter</option>
+                    </select>
+                    
+<!--                     <select class="form__select" name="collection" id="collection" required>
+                        <% if(product.licence_id==1) { %>
+                            <option value="1"selected>Pokemon</option>
+                            <option value="2" >Star Wars</option>
+                            <option value="3">Harry Potter</option>
+                        <% } %>
+                        <% if(product.licence_id==2) { %>
+                            <option value="1" >Pokemon</option>
+                            <option value="2" selected>Star Wars</option>
+                            <option value="3">Harry Potter</option>
+                        <% } %>
+                        <% if(product.licence_id==3) { %>
+                            <option value="1">Pokemon</option>
+                            <option value="2" >Star Wars</option>
+                            <option value="3" selected>Harry Potter</option>
+                        <% } %>
+                    </select> -->
+                </div>
+            </div>
+            <div class="form__box--flex">
+                <label class="form__label" for="name">Nombre del producto:</label>
+                <input class="form__input" type="text" name="name" id="name" value="<%= product.product_name%>"
+                    required>
+            </div>
+            <div>
+                <textarea name="description" id="description" cols="30" rows="10" value=""
+                    required><%= product.product_description%></textarea>
+            </div>
+            <div class="form__flex">
+                <div class="form__box--flex">
+                    <label class="form__label" for="sku">SKU:</label>
+                    <input class="form__input" type="text" name="sku" id="sku" value="<%= product.sku%>" required>
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="price">Precio:</label>
+                    <div class="form__input--wrapper"><span>$</span><input class="form__input" type="text" name="price"
+                            id="price" data-type="currency" value="<%= product.price%>"></div>
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="stock">Stock:</label>
+                    <div class="form__input--wrapper"><input class="form__input" type="text" name="stock" id="stock"
+                            value="<%= product.stock%>" required><span>unidades</span></div>
+                </div>
+            </div>
+            <div class="form__flex">
+                <div class="form__box--flex">
+                    <label class="form__label" for="discount">Descuento:</label>
+                    <div class="form__input--wrapper"><input class="form__input" type="text" name="discount"
+                            id="discount" value="<%= product.discount%>" required><span>%</span></div>
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="dues">Cuotas:</label>
+                    <select class="form__select" name="dues" id="dues">
+                        <option <%= product.dues == '3' ? 'selected' : '' %> value="3">3 cuotas s/ interés</option>
+                        <option <%= product.dues == '6' ? 'selected' : '' %> value="6">6 cuotas s/ interés</option>
+                        <option <%= product.dues == '9' ? 'selected' : '' %> value="9">9 cuotas s/ interés</option>
+                        <option <%= product.dues == '12' ? 'selected' : '' %> value="12">12 cuotas s/ interés</option>
+                        <option <%= product.dues == '18' ? 'selected' : '' %> value="18">18 cuotas s/ interés</option>
+                        <option <%= product.dues == '24' ? 'selected' : '' %> value="24">24 cuotas s/ interés</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form__box--flex">
+                <label class="form__label" for="image1_edit">imagen 1</label>
+                <input type="file" name="images" id="image1_edit" accept="image/*">
+
+                <label class="form__label" for="image2_edit">imagen 2</label>
+                <input type="file" name="images" id="image2_edit" accept="image/*">
+            </div>
+            <div class="form__box--flex">
+                <div class="edit__img">
+                    <img src="/img/<%=product.image_front %>" alt="<%=product.image_front %>">
+                    <p class="edit__img-side">Frente</p>
+                </div>
+                <div class="edit__img">
+                    <img src="/img/<%=product.image_back %>" alt="<%=product.image_back %>">
+                    <p class="edit__img-side">Dorso</p>
+                </div>
+            </div>
+            <div>
+                <input class="btn btn--primary btn--large" type="submit" value="Modificar Producto">
+                <input class="btn btn--primary btn--large" type="reset" value="Limpiar">
+            </div>
+        </form>
+    </main>
+    <%- include('../partials/footer') %>    
+
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+</body>
+</html>

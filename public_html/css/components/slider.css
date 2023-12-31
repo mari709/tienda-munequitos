@@ -1,0 +1,41 @@
+.slider {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-36);
+    margin: var(--spacing-68) auto;
+}
+
+.slider__title {
+    font-family: var(--alternative-font);
+    font-size: var(--font-display);
+   /* text-transform: uppercase;*/
+   color: var(--dark-solid);
+}
+
+.glide__arrow > iconify-icon {
+    color: var(--primary-solid);
+    font-size: var(--font-xlarge);
+    font-weight: 700;
+}
+
+.glide__arrow, .glide__arrows {
+    border: none;
+    box-shadow: none;
+    
+}
+
+.glide__arrow--right {
+    right: 0
+}
+
+.glide__arrow--left {
+    left: 0
+}
+/*los reemplazo con los de la libreria*/
+
+/**
+.slider__items {
+    display: flex;
+    gap: var(--spacing-24);
+}
+**/

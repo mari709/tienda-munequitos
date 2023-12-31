@@ -1,0 +1,28 @@
+<%- include('./partials/header') %>    
+
+    <main class="section-titulos-principales main-section-contact container">
+        <h2>Contacto </h2>
+    </main>
+
+    <section  id="contacto-form">
+        <p>Dejanos tu consulta. Un asesor se pondrá en contacto con vos.</p>
+
+        <form class="form-contact" action="/enviar-mensaje" method="post">
+            <!-- Campos del formulario (nombre, correo, mensaje, etc.) -->
+            <label class="label-contact"  for="nombre">Nombre:</label>
+            <input class="input-contact" type="text" id="nombre" name="nombre" required>
+
+            <label class="label-contact"  for="correo">Correo electrónico:</label>
+            <input class="input-contact"  type="email" id="correo" name="correo" required>
+
+            <label class="label-contact"  or="mensaje">Mensaje:</label>
+            <textarea class="textarea-contact" id="mensaje" name="mensaje" rows="4" required></textarea>
+
+            <button class="btn-primary btn-contact" type="submit">Enviar Mensaje</button>
+        </form>
+    </section>
+
+
+    <%- include('./partials/footer') %>    
+</body>
+</html>

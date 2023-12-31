@@ -1,0 +1,90 @@
+<%- include('../partials/header') %>    
+    <main class="container">
+        <section class="item">
+            <picture class="item__img card-item__cover">
+                <img class="card-item__img--front" src="/img/<%= item2.image_front %>"
+                    alt="<%= item2.product_description %>">
+                <img class="card-item__img--back" src="/img/<%= item2.image_back %>"
+                    alt="<%= item2.product_description %>">
+            </picture>
+            <article class="item__info">
+                <p class="item__licence"><%= item2.licence_name %></p>
+                <h3 class="item__name"><%= item2.product_name %></h3>
+                <p class="item__description"><%= item2.product_description %></p>
+                <p class="item__price">$ <%= item2.price %></p>
+                <form class="item__cart" action="#" method="POST" enctype="application/x-www-form-urlencoded">
+                    <button id="subtract" class="item__quantity" type="button">-</button>
+                    <input id="quantity" class="item__input" type="text" name="quantity" placeholder="0">
+                    <button id="add" class="item__quantity" type="button">+</button>
+                    <button class="item__submit btn btn--primary btn--medium" type="submit">Agregar al carrito</button>
+                </form>
+                <p class="item__promo"><a href="">Ver métodos de pago</a> - <%= item2.dues %> CUOTAS SIN INTERÉS</p>
+            </article>
+        </section>
+        <section class="slider container glide">
+            <h2 class="slider__title">Productos Relacionados</h2>
+            <div class="glide__track" data-glide-el="track">
+                <ul class="slider__items glide__slides">
+                    <li class="slider__items glide__slide">
+                        <article>
+                            <a href=""></a>
+                            <picture>
+                                <img src="/../img/star-wars/trooper-1.webp" alt="figura coleccionable de Trooper">
+                            </picture>
+                            <div>
+                                <p class="card-item__licence" >STARS WARS</p>
+                                <h4 class="card-item__name" >  STORMTROOPER LIGHTSABER</h4>
+                                <p class="card-item__price" >$ 1799,99</p>
+                                <p class="card-item__promo" >3 CUOTAS SIN INTERÉS</p>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="slider__items glide__slide">
+                        <article>
+                            <a href=""></a>
+                            <picture>
+                                <img src="/../img/pokemon/pidgeotto-1.webp" alt="figura coleccionable de pidgeotto">
+                            </picture>
+                            <div>
+                                <p class="card-item__licence" >POKEMON</p>
+                                <h4  class="card-item__name"  >PIDGEOTTO</h4>
+                                <p class="card-item__price" >$ 1799,99</p>
+                                <p class="card-item__promo" >3 CUOTAS SIN INTERÉS</p>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="slider__items glide__slide">
+                        <article>
+                            <a href=""></a>
+                            <picture>
+                                <img src="/../img/harry-potter/luna-1.webp" alt="figura coleccionable de Luna">
+                            </picture>
+                            <div>
+                                <p class="card-item__licence" >HARRY POTTER</p>
+                                <h4 class="card-item__name"  >LUNA LOVEGOOD LION MASK</h4>
+                                <p class="card-item__price" >$ 1799,99</p>
+                                <p class="card-item__promo" >3 CUOTAS SIN INTERÉS</p>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><iconify-icon
+                            icon="icons8:chevron-left-round"></iconify-icon>
+                    </button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><iconify-icon
+                            icon="icons8:chevron-right-round"></iconify-icon>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <%- include('../partials/footer') %>    
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script src="./../../js/slide.js"></script>
+    <script src="./../../js/item.js"></script>
+</body>
+
+</html>

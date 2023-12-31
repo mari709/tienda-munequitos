@@ -1,0 +1,21 @@
+/* BUTTONS STYLES */
+
+.btn {
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-weight: 600;
+    /*text-transform: uppercase;*/
+    font-size: var(--font-small);
+}
+
+/* COLORS */
+
+.btn--primary {
+    background-color: var(--primary-solid);
+    color: var(--light-font-solid);
+    transition: all 0.2s ease-in-out;
+}
+.btn--primary:hover{
+    background-color: var(--dark-bg-solid);
+}

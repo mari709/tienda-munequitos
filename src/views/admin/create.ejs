@@ -1,0 +1,84 @@
+<%- include('../partials/header') %>    
+<main id="create" class="container">
+
+<div class="section-titulos-principales">
+    <h2 class="section-titulos-principales">Crear nuevo item </h2>
+</div>
+        <form class="create__form" action="/admin/create" method="POST" enctype="multipart/form-data">
+            <div class="form__flex">
+                <div class="form__box--flex">
+                    <label class="form__label" for="category">Categoría:</label>
+                    <select class="form__select" name="category" id="category" required>
+                        <option value="" disabled selected hidden>Seleccionar</option>
+                        <option value="1">Figuras Coleccionables</option>
+                        <option value="2">Remeras</option>
+                        <option value="3">Llaveros</option>
+                    </select>
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="licence">Licencia:</label>
+                    <select class="form__select" name="licence" id="licence" required>
+                        <option value="" disabled selected hidden>Seleccionar</option>
+                        <option value="2">Star Wars</option>
+                        <option value="1">Pokemon</option>
+                        <option value="3">Harry Potter</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form__box--flex">
+                <label class="form__label" for="name">Nombre del producto:</label>
+                <input class="form__input" type="text" name="name" id="name" placeholder="Kakashi Hatake Shippuden Saga" required>
+            </div>
+            <div>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripción del producto" required></textarea>
+            </div>
+            <div class="form__flex">
+                <div class="form__box--flex">
+                    <label class="form__label" for="sku">SKU:</label>
+                    <input class="form__input" type="text" name="sku" id="sku" placeholder="SSK111AB001" required>
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="price">Precio:</label>
+                    <div class="form__input--wrapper"><span>$</span><input class="form__input" type="text" name="price" id="price" data-type="currency" placeholder="0.000,00"></div>
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="stock">Stock:</label>
+                    <div class="form__input--wrapper"><input class="form__input" type="text" name="stock" id="stock" placeholder="0" required><span>unidades</span></div>
+                </div>
+            </div>
+            <div class="form__flex">
+                <div class="form__box--flex">
+                    <label class="form__label" for="discount">Descuento:</label>
+                    <div class="form__input--wrapper"><input class="form__input" type="text" name="discount" id="discount" placeholder="0" required><span>%</span></div>
+                </div>
+                <div class="form__box--flex">
+                    <label class="form__label" for="dues">Cuotas:</label>
+                    <select class="form__select" name="dues" id="dues">
+                        <option value="0">Sin cuotas</option>
+                        <option value="3">3 cuotas s/ interés</option>
+                        <option value="6">6 cuotas s/ interés</option>
+                        <option value="9">9 cuotas s/ interés</option>
+                        <option value="12">12 cuotas s/ interés</option>
+                        <option value="18">18 cuotas s/ interés</option>
+                        <option value="24">24 cuotas s/ interés</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form__box--flex">
+                <label class="form__label" for="image1">Seleccionar imagen 1:</label>
+                <input type="file" name="images" id="image1" accept="image/*" required>
+
+                <label class="form__label" for="image2">Seleccionar imagen 2:</label>
+                <input type="file" name="images" id="image2" accept="image/*" required>
+            </div>
+            <div class="form__flex">
+                <input class="form__btn btn btn--primary btn--large" type="submit" value="Agregar Producto">
+                <input class="form__btn btn btn--primary btn--large" type="reset" value="Limpiar">
+            </div>
+        </form>
+    </main>
+    <%- include('../partials/footer') %>    
+
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+</body>
+</html>
