@@ -1,9 +1,10 @@
 //importar modulos
 const express = require('express');
-const app = express();
+const session = require('express-session');
 const path = require('path');
 const methodOverride = require('method-override');
-require('dotenv').config();
+
+const app = express();
 
 //importar rutas
 const mainRoutes = require('./src/routes/mainRoutes');
@@ -25,6 +26,12 @@ app.use(methodOverride('_method'));
 
 // Middleware para servir archivos estáticos
 app.use(express.static('public_html'));
+
+app.use(session({
+  secret: 'miSecretKey', 
+  resave: false,
+  saveUninitialized: true
+}));
 
 // Configuración de las rutas
 app.use('/', mainRoutes);
