@@ -1,5 +1,5 @@
 {
-  "name": "tienda-online-backend",
+  "name": "tienda-munequitos",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -9,7 +9,7 @@
     "start": "node app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "mari709",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
