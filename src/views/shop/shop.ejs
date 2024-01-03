@@ -3,7 +3,7 @@
         <aside class="shop__filters filters" id="sidebar-product">
             <fieldset>
             <form id="filter-form" class="filters__search">
-                <label for="filters__title" class="filters__title" for="search-product">Buscar producto:</label>
+                <label for="search-product" class="filters__title" for="search-product">Buscar producto:</label>
                 <input class="input-filter" type="text" id="search-product" name="search-product" placeholder="Buscar ítem o categoría">
 
                 <div class=" filters__order">
@@ -17,14 +17,14 @@
 
 
                 <div class="filters__price">
-                    <label for="filters__title">Precio:</label>
+                    <label for="min-price" aria-labelledby="min-price max-price"id="label__filters__price">Precio:</label>
                     <input type="number" id="min-price" name="min-price" placeholder="min" min="0">
                     <input type="number" id="max-price" name="max-price" placeholder="max" min="0">
                 </div>
                 <div class="filters__checks form-group">
                     <fieldset>
                         <legend class="filter-legend">Filtrar por:</legend>
-                        <label class="label-filter" for="new">
+                        <label class="label-filter" for="news">
                             <input class="icheck" type="checkbox" id="news" name="news" value="news"> Nuevo
                         </label>
                         <label class="label-filter" for="offers">
