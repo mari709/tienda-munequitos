@@ -1,14 +1,17 @@
-const path = require('path');
+    //authentication.js
+    const isAuthenticated = (req, res, next) => {
+        console.log('Middleware de autenticación en acción');
 
+        if (req.session && req.session.isLogged) {
+            // El usuario está autenticado
+            console.log('Usuario autenticado');
+            return next();
+        }
+        // El usuario no está autenticado, redirige a la página de inicio de sesión
+        console.log('Usuario no autenticado. Redirigiendo a la página de inicio de sesión');
+        res.redirect('/auth/login');
+    };
 
-const ensureAuthenticated = (req, res, next) => {
-    if (req.session.user) {
-        return next();
-    } else {
-        // Guarda la URL actual en la sesión para que puedas redirigir después del inicio de sesión
-        req.session.returnTo = req.originalUrl;
-        res.redirect('/auth/login'); // Cambia '/admin/login' por la ruta de tu pantalla de inicio de sesión
-    }
-};
-
-module.exports = { ensureAuthenticated };
+    module.exports = {
+        isAuthenticated,
+    };

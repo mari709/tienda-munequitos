@@ -2,16 +2,16 @@
 
     <main id="login" class="container">
         <h2 class="login__title">INGRESAR A MI CUENTA</h2>
-        <form class="login__form form" action="" method="post">
+        <form class="login__form form" action="/auth/login" method="POST">
             <div class="form__box--grid">
-                <label class="form__label" for="input-email">Correo electrónico:</label>
-                <input class="form__input" type="email" name="email" id="input-email" placeholder="john@gmail.com"
-                autocomplete="username"  required>
+                <label class="form__label" for="email">Correo electrónico:</label>
+                <input class="form__input" type="email" name="email" id="email" placeholder="john@gmail.com"
+                autocomplete="email"  required>
             </div>
 
             <div class="form__box--grid">
-                <label class="form__label" for="input-password">Contraseña:</label>
-                <input class="form__input" type="password" name="password" id="input-password"
+                <label class="form__label" for="password">Contraseña:</label>
+                <input class="form__input" type="password" name="password" id="password"
                     placeholder="&#9679&#9679&#9679&#9679&#9679&#9679&#9679&#9679" autocomplete="current-password" required>
             </div>
 
@@ -23,6 +23,7 @@
                 </div>
             </div>
             <a class="form__link" type="submit" href="">Recuperar contraseña</a>
+            <p>¿No tienes una cuenta? <a href="/auth/register">Regístrate</a></p>
         </form>
     </main>
     <%- include('../partials/footer') %>    
