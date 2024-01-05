@@ -84,3 +84,22 @@ p {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+.main-section {
+    padding-top: var(--spacing-68);
+    padding-bottom: var(--spacing-36);
+    padding-left: var(--spacing-36);
+}
+
+.section-titulos-principales h2 {
+    font-family: var(--alternative-font);
+    font-size: var(--font-jumbo);
+    border-bottom: 5px solid var(--primary-solid);
+    display: inline-block; /* Hace que el subrayado solo ocupe el ancho del texto */
+}
+
+@media screen and (max-width: 768px) {
+    .main-section {
+        margin: 20px;
+    }
+}

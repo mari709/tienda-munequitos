@@ -1,21 +1,4 @@
-.main-section {
-    padding-top: var(--spacing-128);
-    padding-bottom:  var(--spacing-128);
-}
-
-.section-titulos-principales>h2 {
-    font-family: var(--alternative-font);
-    font-size: var(--font-jumbo);
-   /* text-transform: uppercase;*/
-    border-bottom: 5px solid var(--primary-solid);
-    margin-bottom: 10px;
-    display: inline-block;
-    /* Hace que el subrayado solo ocupe el ancho del texto */
-}
-
-
 .encabezado-tabla-detalle {
-    margin-top: var(--spacing-68);
     font-size: var(--font-small);
     text-transform: uppercase;
     font-weight: 700;
@@ -192,10 +175,4 @@ p>span {
 
 .item-resumen_carrito {
     font-weight: bold;
-}
-
-@media screen and (max-width: 768px) {
-    .main-section {
-        margin: 20px;
-    }
 }
