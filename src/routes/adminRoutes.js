@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const upload = require('../middlewares/uploadFiles');
-const authentication = require('../../authentication');
+const { isAuthenticated } = require('../../authentication');
 
 const {
     adminView,
@@ -12,10 +12,10 @@ const {
     deleteItem
 } = require('../controllers/adminController');
 
-router.get('/', authentication.ensureAuthenticated, adminView);
-router.get('/create', authentication.ensureAuthenticated, createView);
+router.get('/', isAuthenticated, adminView);
+router.get('/create', isAuthenticated, createView);
 router.post('/create', upload.array('images',2), createItem);
-router.get('/edit/:id', authentication.ensureAuthenticated, editView);
+router.get('/edit/:id', isAuthenticated, editView);
 router.put('/edit/:id', upload.array('images',2), editItem);
 router.delete('/delete/:id', deleteItem);
 
