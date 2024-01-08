@@ -1,18 +1,11 @@
 const path = require('path');
 const bcrypt = require('bcrypt');
 const { createUser, getUserByEmail, comparePassword } = require('../models/userModels');
-/*const { isAuthenticated } = require('../../authentication');*/
 
-/*
-async function validatePasswordsMatch(password, repassword) {
-    return password === repassword;
-}
-*/
-async function registerNewUser(name, lastname, email, password) {
-    const hashedPassword = await bcrypt.hash(password, 5);
-    const userId = await createUser(name, lastname, email, hashedPassword);
-    return userId;
-}
+const credentials = {
+    email: "pepe@gmail.com",
+    password: "pepe"
+};
 
 module.exports = {
     loginView: (req, res) => {
@@ -26,26 +19,26 @@ module.exports = {
             const { email, password } = req.body;
             console.log('Datos de inicio de sesión:', email, password);
 
-            // Validar si se proporcionaron tanto el nombre de usuario como la contraseña
+     /*       // Validar si se proporcionaron tanto el nombre de usuario como la contraseña
             if (!email || !password) {
                 console.log('Datos incompletos');
                 return res.status(400).send('Por favor, proporciona tanto el nombre de usuario como la contraseña.');
             }
-
+*/
             // Obtener el usuario de la base de datos
             const user = await getUserByEmail(email);
             console.log('Usuario obtenido de la base de datos:', user);
 
             // Verificar si el usuario existe
             if (!user) {
-                return res.status(401).send('Credenciales inválidas. El usuario no existe.');
+                return res.status(401).send('Credenciales inválidas. El mail no existe.');
             }
 
             // Verificar la contraseña
             const passwordMatch = await comparePassword(password, user.password); //revisar porque da false
 
-            console.log('Coincidencia de contraseña:', passwordMatch);
-
+            console.log('contraseña:', password);
+            console.log('hash:', user.password);
             if (!passwordMatch) {
                 console.log('Contraseña incorrecta');
                 return res.status(401).send('Credenciales inválidas. La contraseña es incorrecta.'); //revisar
@@ -92,7 +85,7 @@ module.exports = {
             }
 
             // Crear el nuevo usuario
-            const userId = await registerNewUser(name, lastname, email, password);
+            const userId = await createUser(name, lastname, email, password);
 
             console.log(`Usuario registrado con éxito. ID: ${userId}`)
             // res.send(`Usuario registrado con éxito. ID: ${userId}`);

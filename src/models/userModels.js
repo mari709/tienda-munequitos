@@ -24,10 +24,7 @@ async function getUserByEmail(email) {
 
 async function comparePassword(inputPassword, hashedPassword) {
   try {
-    console.log('Contraseña proporcionada:', inputPassword);
-    console.log('Contraseña almacenada (hash):', hashedPassword);
     const match = await bcrypt.compare(inputPassword, hashedPassword);
-    console.log('match:', match);
     return match;
   } catch (error) {
     console.error('Error al comparar contraseñas:', error);
