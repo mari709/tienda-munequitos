@@ -1,6 +1,7 @@
 //importar modulos
 const express = require('express');
 const session = require('express-session');
+require('dotenv').config();
 //const bcrypt = require('bcrypt');
 const path = require('path');
 const methodOverride = require('method-override');
